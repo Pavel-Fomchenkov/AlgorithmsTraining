@@ -1,16 +1,32 @@
 package pro.sky.javacoursepart2;
 
+import pro.sky.javacoursepart2.quicksort.QuickSort;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>(List.of(15, 0, -17, 2, 100, -178, -555, 37, 42, 99));
-//        list.sort(Comparator.naturalOrder());
-        selectionSort(list);
+        System.out.println("initial list");
+        System.out.println(list);
 
-        System.out.println(list); // [-555, -178, -17, 0, 2, 15, 37, 42, 99, 100]
-        System.out.println(binary_search(list, 0));
+        System.out.println("list sorted by selection sort");
+        selectionSort(list);
+        System.out.println(list + "\n");
+
+        System.out.println("find index of \"0\" in sorted list using binary search");
+        System.out.println(binary_search(list, 0) + "\n");
+
+        int[] array = {0, 1, 10, 4, 3, 7, 5, 6, 4, 8, 7, 9, 10, 0, 2, 4, 4, 4};
+        System.out.println("initial array");
+        System.out.println(Arrays.toString(array));
+
+        System.out.println("array sorted by quick sort");
+        QuickSort.quicksort(array);
+        System.out.println(Arrays.toString(array));
     }
 
     public static int binary_search(List<Integer> sortedList, int item) {
